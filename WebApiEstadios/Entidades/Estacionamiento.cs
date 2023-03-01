@@ -4,10 +4,10 @@
     {
         public int EstacionamientoID { get; set; }
 
-        public string Capacidad { get; set; }
+        public int Capacidad { get; set; }
 
         public int PrecioHora { get; set; }
 
-        public string EstadioID { get; set; }
+        public int EstadioID { get; set; }
     }
 }
