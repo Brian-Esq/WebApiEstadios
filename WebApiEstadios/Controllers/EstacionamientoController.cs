@@ -10,7 +10,7 @@ namespace WebApiEstadios.Controllers
         [HttpGet]
         public ActionResult <Estacionamiento> Get()
         {
-            return new Estacionamiento() { EstacionamientoID = 1, Capacidad = 10000, PrecioHora = 50, EstadioID = 1 };
+            return new Estacionamiento() { EstacionamientoID = 1, Capacidad = 10000, PrecioHora = 50, Zona = "A", EstadioID = 1 };
         }
     }
 }
