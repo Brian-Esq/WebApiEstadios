@@ -36,7 +36,7 @@ namespace WebApiEstadios.Controllers
         [HttpGet("/lista")]
         public async Task<ActionResult<List<Estadio>>> GetAll()
         {
-            return await dbContext.Estadios.ToListAsync();
+            return await dbContext.Estadios.Include(x => x.estacionamientos).ToListAsync();
         }
 
         [HttpPut("{id:int}")]
@@ -51,7 +51,25 @@ namespace WebApiEstadios.Controllers
             await dbContext.SaveChangesAsync();
             return Ok();
 
-        } 
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var exists = await dbContext.Estadios.AnyAsync(x => x.EstadioID == id);
+            if (!exists)
+            {
+                return NotFound("No se encontro el registro en la base de datos");
+            }
+
+            dbContext.Remove(new Estadio()
+            {
+                EstadioID = id
+            });
+            await dbContext.SaveChangesAsync();
+            return Ok();
+
+        }
 
     }
 }

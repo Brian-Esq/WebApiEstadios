@@ -9,5 +9,7 @@
         public int Capacidad { get; set; }
 
         public string Ubicacion { get; set; }
+
+        public List<Estacionamiento> estacionamientos { get; set; }
     }
 }

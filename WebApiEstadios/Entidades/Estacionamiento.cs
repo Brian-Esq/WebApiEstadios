@@ -11,5 +11,7 @@
         public string Zona { get; set; }
 
         public int EstadioID { get; set; }
+
+        public Estadio Estadio { get; set; }
     }
 }
